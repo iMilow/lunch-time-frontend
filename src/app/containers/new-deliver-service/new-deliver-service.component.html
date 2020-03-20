@@ -1,0 +1,19 @@
+<form class="new-deliver-service" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+  <h1>Dienst anbieten?</h1>
+  <!-- Name -->
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Dein Name" required>
+  </mat-form-field>
+  <!-- Shop -->
+  <mat-form-field>
+    <mat-label>Wohin geht's</mat-label>
+    <input matInput formControlName="shop" placeholder="Subway, Mces..." required>
+  </mat-form-field>
+  <!-- PayPal -->
+  <mat-form-field>
+    <mat-label>PayPal Me Link</mat-label>
+    <input matInput formControlName="payPalUrl" placeholder="Url" required>
+  </mat-form-field>
+  <button class="btn" type="submit" [disabled]="formGroup.invalid" [ngClass]="{'disabled': formGroup.invalid}">Anmelden</button>
+</form>

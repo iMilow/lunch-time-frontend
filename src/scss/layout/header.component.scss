@@ -1,0 +1,13 @@
+header {
+  background-color: $color-primary;
+  clip-path: polygon(50% 0%, 100% 40%, 100% 100%, 0 100%, 0 40%);
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 10rem;
+
+  @include respond(phone) {
+
+  }
+}

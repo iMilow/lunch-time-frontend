@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card__side card__side--front">
+    <!-- Header -->
+    <h4 class="card__heading">
+      <span class="card__heading-span">
+        {{ title }}
+      </span>
+    </h4>
+    <!-- Aktuelle Einkäufer -->
+    <div class="card__details">
+      <!-- Show Einkäufer mit Ort wohin und wie viele Bestellungen -->
+      <ng-content select="[frontbody]"></ng-content>
+    </div>
+  </div>
+  <!-- Back Side of the card -->
+  <div class="card__side card__side__back two bgi">
+    <div class="card__cta">
+      <ng-content select="[backbody]"></ng-content>
+    </div>
+  </div>
+</div>

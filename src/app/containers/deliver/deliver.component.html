@@ -1,0 +1,11 @@
+<div class="deliver">
+  <div *ngIf="(buyers$ | async)?.length > 0; else emptyBuyers" class="deliver__overview">
+    <itslunch-buyers-item *ngFor="let item of (buyers$ | async)" [item]="item" (click)="selectOrder(item.id)"></itslunch-buyers-item>
+  </div>
+  <ng-template #emptyBuyers>
+    <div class="deliver__empty">
+      <h1>Keine Bestellungen</h1>
+    </div>
+  </ng-template>
+  <router-outlet hidden></router-outlet>
+</div>

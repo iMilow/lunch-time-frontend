@@ -1,0 +1,52 @@
+<!-- Stepper zum Bestellen -->
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <!-- Step um den Einkäufer auszuwählen -->
+  <mat-step [stepControl]="selectBuyerFormGroup">
+    <form class="order__forms" [formGroup]="selectBuyerFormGroup">
+      <ng-template matStepLabel>Einkäufer auswählen</ng-template>
+      <mat-radio-group class="order__forms__radio" aria-label="Einkäufer" formControlName="deliverId" (change)="onSelectBuyer($event)">
+        <!-- Radio Button -->
+        <mat-radio-button [value]="buyer.id" *ngFor="let buyer of buyers">
+          <itslunch-buyers-item [item]="buyer"></itslunch-buyers-item>
+        </mat-radio-button>
+      </mat-radio-group>
+      <div class="order__actions">
+        <button class="btn" mat-button matStepperNext [disabled]="selectBuyerFormGroup.invalid" [ngClass]="{'disabled': selectBuyerFormGroup.invalid}">Weiter</button>
+      </div>
+    </form>
+  </mat-step>
+  <!-- Step für die Bestellung Informationen -->
+  <mat-step [stepControl]="orderFormGroup">
+    <form class="order__forms" [formGroup]="orderFormGroup">
+      <ng-template matStepLabel>Was möchtest du essen?</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Dein Name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Deine Bestellung</mat-label>
+        <input matInput formControlName="orderMessage" placeholder="Bestellung" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Preis</mat-label>
+        <input matInput formControlName="price" placeholder="Bestellung" required>
+      </mat-form-field>
+      <mat-checkbox formControlName="support">Einkäufer begleiten</mat-checkbox>
+      <mat-checkbox formControlName="payed">direkt Bezahlen</mat-checkbox>
+      <div class="order__actions">
+        <button class="btn" mat-button matStepperPrevious>Zurück</button>
+        <button class="btn" mat-button matStepperNext [disabled]="orderFormGroup.invalid" [ngClass]="{'disabled': orderFormGroup.invalid}">Weiter</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <!-- Step zum Bezahlen via PayPal  -->
+    <ng-template matStepLabel>Bezahlen</ng-template>
+    <a class="btn" [href]="selectedBuyer?.payPalUrl">Bezahlen via PayPal</a>
+    <div class="order__actions">
+      <button class="btn" mat-button matStepperPrevious>Zurück</button>
+      <button class="btn" mat-button (click)="orderNow()">Fertig</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+

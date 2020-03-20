@@ -1,0 +1,5 @@
+<div class="orders-item">
+  <h3>{{ item.name.trim() }} hat {{item.orderMessage}} bestellt und kostet {{item.price}}€</h3>
+  <mat-checkbox [(ngModel)]="item.support">Einkäufer begleiten</mat-checkbox>
+  <mat-checkbox [(ngModel)]="item.payed">Bezahlt</mat-checkbox>
+</div>

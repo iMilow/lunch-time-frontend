@@ -1,0 +1,12 @@
+:host {
+  position: relative;
+}
+
+.new-deliver-service {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: repeat(5, min-content);
+
+  @include absCenter();
+}

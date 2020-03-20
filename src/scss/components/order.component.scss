@@ -1,0 +1,20 @@
+.order {
+  &__forms {
+    display: grid;
+    justify-items: center;
+
+    &__radio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 2rem;
+    }
+  }
+
+  &__actions {
+    padding: 2rem;
+    display: grid;
+    justify-items: center;
+    grid-auto-flow: column;
+    grid-column-gap: 2rem;
+  }
+}

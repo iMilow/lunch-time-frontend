@@ -1,0 +1,37 @@
+<div class="home">
+  <!-- Einkäufer -->
+  <itslunch-card [title]="'Einkäufer 🙋🏻 🙋🏻‍♂️'">
+    <!-- FrontSide -->
+    <div frontbody *ngIf="(buyers$ | async)?.length > 0; else emptyBuyers" class="home__buyers">
+      <itslunch-buyers-item *ngFor="let item of (buyers$ | async)" [item]="item"></itslunch-buyers-item>
+    </div>
+    <ng-template frontbody #emptyBuyers>
+      <div class="deliver__empty">
+        <h1>Keine Bestellungen</h1>
+      </div>
+    </ng-template>
+
+    <!-- BackSide -->
+    <div backbody class="home__buyers__actions">
+      <button class="btn" [routerLink]="['/deliver/new']">Bestellungen</button>
+    </div>
+  </itslunch-card>
+
+   <!-- Besteller -->
+  <itslunch-card [title]="'Besteller 🛒'">
+    <!-- FrontSide -->
+    <div frontbody class="home__order">
+      <h1>Bestelle in drei einfachen Schritten dein Essen</h1>
+      <ul>
+        <li class="home__order__list__item">1. Einkäufer auswählen</li>
+        <li class="home__order__list__item">2. Bestellung aufgeben</li>
+        <li class="home__order__list__item">3. Bezahlen via PayPal</li>
+      </ul>
+    </div>
+
+    <!-- BackSide -->
+    <div backbody>
+      <button class="btn" [routerLink]="['/order']" routerLinkActive="router-link-active" >Bestellen</button>
+    </div>
+  </itslunch-card>
+</div>

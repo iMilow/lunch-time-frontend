@@ -1,0 +1,26 @@
+.deliver {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__overview {
+    height: 35rem;
+    display: grid;
+    grid-row-gap: 2rem;
+    background-color: $color-secondary;
+    padding: 2rem;
+    grid-template-rows: min-content min-content 1fr;
+
+    &__info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__empty {
+    background-color: $color-secondary;
+    height: 35rem;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+}

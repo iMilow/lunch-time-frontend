@@ -1,0 +1,12 @@
+<div class="deliver__overview">
+  <button class="btn" (click)="onUpdateOrders()">Update</button>
+  <div class="deliver__overview__info">
+    <h2>{{ selectedDeliver?.name }}</h2>
+    <h2>{{ selectedDeliver?.shop }}</h2>
+  </div>
+  <!-- Bestellungen -->
+  <div class="deliver__overview__orders">
+    <itslunch-orders-item [item]="order" *ngFor="let order of selectedDeliver?.orders">
+    </itslunch-orders-item>
+  </div>
+</div>

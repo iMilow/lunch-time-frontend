@@ -1,0 +1,102 @@
+// Scss Mixins
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absCenterBottom {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absCenterBottomMore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 450%);
+}
+
+@mixin absCenterTop {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absCenterTopCard {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px :     phone
+600- 900px :    Tablet Portait
+900- 1200px :    Tablet landscape
+[1200-1800] is where our normal styles apply
+1800px + :    Big desktop
+
+// $breakkpoint arguement choices:
+// - phone
+// - tab-port
+// - tab-land
+// - big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+// 1em = 16px;
+ */
+ @mixin respond($breakkpoint) {
+  @if $breakkpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      // 600px
+      @content
+    }
+
+    ;
+  }
+
+  @if $breakkpoint==phoneland {
+    @media only screen and (max-height: 30em) {
+      // 424px
+      @content
+    }
+  }
+
+  @if $breakkpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      // 900px
+      @content
+    };
+  }
+
+  @if $breakkpoint==tab-land {
+    @media only screen and (max-width: 75em) {
+      // 1200px
+      @content
+    };
+  }
+
+  @if $breakkpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      // 1800px
+      @content
+    };
+  }
+}

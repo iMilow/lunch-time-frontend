@@ -1,0 +1,13 @@
+footer {
+  background-color: $color-primary;
+  clip-path: polygon(100% 0, 100% 60%, 50% 100%, 0 60%, 0 0);
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 10rem;
+
+  @include respond(phone) {
+
+  }
+}
